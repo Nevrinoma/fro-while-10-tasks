@@ -104,6 +104,24 @@
 #
 from random import*
 print("- Mini Lotery! -".center(50,"$"))
-number=" "
-win=randint(1,11)
-while number==win:
+number1=1
+number2=randint(1,6)
+tries=0
+print(number2)
+while number1!=number2:
+    number1=int(input("Введите число от 1 до 5==> "))
+    while number1>6 or number1<1:
+        try:
+            number1=int(input("Введите число от 1 до 5==> "))
+        except:
+            ValueError
+    if number1==number2:
+        tries+=1
+        print(f"Вы угадали число с {tries} попытки!")
+        break
+    elif number2>number1:
+        print(f"Число больше, чем {number1}")
+        tries+=1
+    else:
+        print(f"Число меньше, чем {number1}")
+        tries+=1
